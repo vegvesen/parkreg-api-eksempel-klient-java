@@ -19,7 +19,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.File;
 import java.math.BigDecimal;
-import java.net.URL;
 
 public class ApiKlient {
 
@@ -39,7 +38,7 @@ public class ApiKlient {
 
         WebTarget target = client.target(LOCALHOST_URL);
         Response response = target
-                .request(MediaType.APPLICATION_JSON_TYPE)
+                .request()
                 .header("User-ID", "TjeOsloParkering_Parkeringsregisteret")
                 .post(Entity.entity(multipart, multipart.getMediaType()));
 
@@ -55,12 +54,7 @@ public class ApiKlient {
     }
 
     private static File getSkiltplanFil() {
-        ClassLoader classLoader = ApiKlient.class.getClassLoader();
-        URL resourceUrl = classLoader.getResource("skiltplan.pdf");
-        if (resourceUrl != null) {
-            return new File(resourceUrl.getFile());
-        }
-        return null;
+        return new File("./src/main/resources/skiltplan.pdf");
     }
 
     private static Parkeringsomrade opprettParkeringsomrade() {
