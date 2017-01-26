@@ -62,21 +62,21 @@ public class ApiKlient {
 
     private static Parkeringsomrade opprettParkeringsomrade() {
         Parkeringsomrade parkeringsomrade = new Parkeringsomrade();
-        parkeringsomrade.setBreddegrad(new BigDecimal(16.938445));
-        parkeringsomrade.setLengdegrad(new BigDecimal(54.537850));
+        parkeringsomrade.setBreddegrad(new BigDecimal(59.910316));
+        parkeringsomrade.setLengdegrad(new BigDecimal(10.748299));
 
         ParkeringsomradeVersjon versjon = new ParkeringsomradeVersjon();
         versjon.setAntallAvgiftsbelagtePlasser(200);
         versjon.setAntallAvgiftsfriePlasser(180);
         versjon.setAntallForflytningshemmede(10);
-        versjon.setAntallLadeplasser(20);
+        versjon.setAntallLadeplasser(40);
         versjon.setInnfartsparkering(Innfartsparkering.NEI);
         versjon.setTypeParkeringsomrade(TypeParkeringsomrade.PARKERINGSHUS);
         versjon.setVurderingForflytningshemmede("En vurdering etter paragraf 62...");
-        versjon.setAdresse("Kongeveien 10");
-        versjon.setPostnummer("0100");
+        versjon.setAdresse("Prinsens gate 1");
+        versjon.setPostnummer("0152");
         versjon.setPoststed("OSLO");
-        versjon.setNavn("Kongen P-HUS");
+        versjon.setNavn("Prinsen P-HUS");
 
         parkeringsomrade.setAktivVersjon(versjon);
         return parkeringsomrade;
