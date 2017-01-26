@@ -22,7 +22,10 @@ import java.math.BigDecimal;
 
 public class ApiKlient {
 
-    private static final String LOCALHOST_URL = "http://localhost:8020/ws/no/vegvesen/veg/parkeringsomraade/parkeringsregisteret_internbruker/v1/parkeringsomraade";
+    private static final String HOST = "http://localhost:8020";
+    private static final String API_PATH = "/ws/no/vegvesen/veg/parkeringsomraade/parkeringsregisteret_internbruker/v1/parkeringsomraade";
+
+    private static final String USER_ID = "TjeOsloParkering_Parkeringsregisteret";
 
     public static void main(String... args) throws JsonProcessingException {
         Client client = ClientBuilder.newBuilder()
@@ -36,10 +39,10 @@ public class ApiKlient {
                 .field("parkeringsomraade", inputOmrade, MediaType.APPLICATION_JSON_TYPE)
                 .bodyPart(skiltplanPart);
 
-        WebTarget target = client.target(LOCALHOST_URL);
+        WebTarget target = client.target(HOST + API_PATH);
         Response response = target
                 .request()
-                .header("User-ID", "TjeOsloParkering_Parkeringsregisteret")
+                .header("User-ID", USER_ID)
                 .post(Entity.entity(multipart, multipart.getMediaType()));
 
         if (response.getStatus() == 200) {
