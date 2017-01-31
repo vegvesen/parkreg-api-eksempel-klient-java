@@ -6,6 +6,7 @@ import no.vegvesen.tk.parkreg.apiklient.domain.Innfartsparkering;
 import no.vegvesen.tk.parkreg.apiklient.domain.Parkeringsomrade;
 import no.vegvesen.tk.parkreg.apiklient.domain.ParkeringsomradeVersjon;
 import no.vegvesen.tk.parkreg.apiklient.domain.TypeParkeringsomrade;
+import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
 import org.glassfish.jersey.media.multipart.FormDataMultiPart;
 import org.glassfish.jersey.media.multipart.MultiPart;
 import org.glassfish.jersey.media.multipart.MultiPartFeature;
@@ -22,14 +23,18 @@ import java.math.BigDecimal;
 
 public class ApiKlient {
 
-    private static final String HOST = "http://localhost:8020";
+    private static final String HOST = "https://www.vegvesen.no";
     private static final String API_PATH = "/ws/no/vegvesen/veg/parkeringsomraade/parkeringsregisteret_internbruker/v1/parkeringsomraade";
 
-    private static final String USER_ID = "TjeOsloParkering_Parkeringsregisteret";
+    private static final String USER_ID = "<FYLL INN TJENESTEBRUKER HER>";
+    private static final String PASSWORD = "<FYLL INN PASSORD HER>";
 
     public static void main(String... args) throws JsonProcessingException {
+        HttpAuthenticationFeature authenticationFeature = HttpAuthenticationFeature.basic(USER_ID, PASSWORD);
+
         Client client = ClientBuilder.newBuilder()
                 .register(MultiPartFeature.class)
+                .register(authenticationFeature)
                 .build();
 
         Parkeringsomrade inputOmrade = opprettParkeringsomrade();
