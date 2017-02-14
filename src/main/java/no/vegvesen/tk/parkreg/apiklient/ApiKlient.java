@@ -69,7 +69,6 @@ public class ApiKlient {
         Parkeringsomrade parkeringsomrade = new Parkeringsomrade();
         parkeringsomrade.setBreddegrad(new BigDecimal(59.910316));
         parkeringsomrade.setLengdegrad(new BigDecimal(10.748299));
-        parkeringsomrade.setEgendefinertId("TF-2001");
 
         ParkeringsomradeVersjon versjon = new ParkeringsomradeVersjon();
         versjon.setAntallAvgiftsbelagtePlasser(200);
