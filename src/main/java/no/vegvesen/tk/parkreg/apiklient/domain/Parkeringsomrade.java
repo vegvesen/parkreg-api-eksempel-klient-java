@@ -7,6 +7,7 @@ import java.util.List;
 public class Parkeringsomrade {
 
     private long id;
+    private String egendefinertId;
 
     private long parkeringstilbyderId;
     private String parkeringstilbyderNavn;
@@ -32,6 +33,14 @@ public class Parkeringsomrade {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getEgendefinertId() {
+        return egendefinertId;
+    }
+
+    public void setEgendefinertId(String egendefinertId) {
+        this.egendefinertId = egendefinertId;
     }
 
     public ParkeringsomradeVersjon getAktivVersjon() {
